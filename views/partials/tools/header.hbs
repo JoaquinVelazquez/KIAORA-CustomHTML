@@ -1,0 +1,150 @@
+<div class="header-wrapper header-wrapper--fixed {{headerAdditionalClasses}}" data-ms-theme="tools">
+    {{#if flash.enabled}} {{> components/flash}} {{/if}}
+    {{> components/cookieDisclaimer}}
+    <header role="banner" class="header" itemtype="http://schema.org/Store" itemid="#this" itemscope="" class="nav-tools">
+        <div class="nav-tools-header__top header--custom-background">
+            <div class="nav-tools-header__top-bound">
+
+                <!-- logo -->         
+
+                <a href="/" id="logo-wrapper" class="nav-tools__logo-wrapper">
+                    {{!-- {{#if logo}} --}}
+                    <img id="image-logo" src="https://iili.io/Jf9NPeV.png" alt="{{name}}" />
+                    {{!-- {{else}} --}}
+                    {{!-- <span class="header--custom-text">
+                        {{name}}
+                    </span> --}}
+                    {{!-- {{/if}} --}}
+                </a>
+
+
+                <!-- Search box -->
+                <div class="nav-tools-header__top-bound-separation">
+                    <div class="top-separation">
+                        <label class="nav-tools-header__searchbox-mock" for="search-box-toggle"> </label>
+                        <input type="checkbox" name="search-box-toggle" id="search-box-toggle" />
+                        <div class="nav-tools-header__searchbox {{hasInfoClass}}">
+                            {{#if headerMessageEnabled}}
+                            <div class="header__searchbox-info header--custom-text">
+                                {{{headerMessage}}}
+                            </div>
+                            <!-- /.header__searchbox-info header--custom-text -->
+                            {{/if}}
+                            <form class="search-box-container" id="search-form" action="{{home_url}}">
+                                <div class="close"></div>
+                                <input type="text" id="search-input" name="search-box-tools" placeholder="{{i18n.placeholder}}" />
+                                <button type="submit" class="search-button">
+                                    {{> tools/views/partials/search}}
+                                </button>
+                                <!-- /.search-button -->
+                            </form>
+                        </div>
+                        <!-- Icons contact/cart -->
+                        <nav class="nav-tools-header__icons">
+                            {{!-- {{#if contact.href}}
+                            <a href="{{contact.href}}" class="contact-button" rel="nofollow">
+                                {{> tools/views/partials/contact}}
+                            </a>
+                            {{/if}} --}}
+                            {{#if cart.href}}
+                            <a href="{{cart.href}}" title="Carrito" class="cart-button" id="nav-cart">
+                                {{> tools/views/partials/cart-badge}}
+                                {{> tools/views/partials/cart}}
+                            </a>
+                            {{/if}}
+                            <!-- Required for menu-responsive widget -->
+                            <input type="checkbox" id="mobile-categories-menu-switch" name="nav-tools-header__menu-switch" />
+                            <label for="mobile-categories-menu-switch" id="hamburguer-menu">
+                                <span class="nav-header__hamburger"></span>
+                                <span class="nav-header__hamburger"></span>
+                                <span class="nav-header__hamburger"></span>
+                            </label>
+                            <!-- Mobile categories menu has to be a sibling of switcher-->
+                            <ul class="categorias-mobile nav-list nav-list--vertical header--custom-background" itemtype="http://schema.org/SiteNavigationElement" itemscope>
+                                <li><a href="/nuestros-productos">Zapatos</a></li>
+                                <hr>
+                                <li><a href="/nuestros-productos">Carteras</a></li>
+                                <hr>
+                                <li><a href="/nuestros-productos">Accesorios</a></li>
+                                <hr>
+                                <li class="nav-tools-list--vertical__category header--custom-text how-buy__button" data-js="how-buy__button" itemprop="name" tools-custom-data-emitter="how-buy__button">
+                                    <a href="{{linkToHowBuy.href}}">{{linkToHowBuy.label}}</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Desktop navigation menu -->
+                    <div class="nav-tools-header__categories header--custom-background">
+                        <ul itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav-list nav-list--horizontal header--custom-background header--custom-text header--custom-border" id="nav-list">
+
+                            {{!-- CATEGORIAS --}}
+                            <li class="nav-list__item {{#if this.featured}}nav-default__sale-link{{/if}}" itemprop="name" tools-custom-data-emitter="{{@index}}">
+                                <a href="/nosotros" class="nav-list__link">Zapatos</a>
+                            </li>
+                            <li class="nav-list__item {{#if this.featured}}nav-default__sale-link{{/if}}" itemprop="name" tools-custom-data-emitter="{{@index}}">
+                                <a href="/nosotros" class="nav-list__link">Carteras</a>
+                            </li>
+                            <li class="nav-list__item {{#if this.featured}}nav-default__sale-link{{/if}}" itemprop="name" tools-custom-data-emitter="{{@index}}">
+                                <a href="/sucursales" class="nav-list__link">Accesorios</a>
+                            </li>
+
+                            {{!-- {{#if sale.text}}
+                              <li class="nav-list__item nav-default__sale-link" id="nav-default__sale-link">
+                                <a href="{{sale.url}}" class="nav-list__link">{{sale.text}}</a>
+                              </li>
+                            {{/if}} --}}
+
+                            <li class="nav-list__item nav-list__item--more" style="visibility: visible;">
+                                <div class="nav-list__link">{{i18n.moreCategories}}</div>
+                                <ul class="nav-list nav-list--dropdown header--custom-background" id="more-dropdown">
+                                    {{#each menu}}
+                                    <li class="nav-list__item header--custom-text" itemprop="name" tools-custom-data-receiver="{{@index}}">
+                                        <a href="{{this.url}}" class="nav-list__link">{{this.name}}</a>
+                                        <span> <hr/> </span>
+
+                                        <ul class="nav-list__item-subcategory">
+                                            {{#each this.nodes}}
+                                            <li class="nav-tools-list--vertical__attribute header--custom-text">
+                                                <a class="text-bold" href="{{this.url}}">{{this.name}}</a>
+                                            </li>
+                                            <ul class="nav-list__item-subcategory">
+                                                {{#each this.nodes}}
+                                                <li class="nav-tools-list--vertical__attribute header--custom-text">
+                                                    <a class="text-normal" href="{{this.url}}">{{this.name}}</a>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                            {{/each}}
+                                        </ul>
+                                        <!-- /.nav-list__item-subcategory -->
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="subcategorires header--custom-background">
+                            {{#each menu}} {{#if this.nodes}}
+                            <div class="nav-tools-list--vertical__subitem-container" data-toggle="{{@index}}">
+                                <ul class="grid-list">
+                                    {{#each this.nodes}}
+                                    <li class="nav-tools-list--vertical__subitem header--custom-text">
+                                        <a href="{{this.url}}" class="">{{this.name}}</a>
+                                        <ul class="nav-tools-list--vertical__attribute_container">
+                                            {{#each this.nodes}}
+                                            <li class="nav-tools-list--vertical__attribute header--custom-text">
+                                                <a href="{{this.url}}" class="">{{this.name}}</a>
+                                            </li>
+                                            {{/each}}
+                                        </ul>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            {{/if}} {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

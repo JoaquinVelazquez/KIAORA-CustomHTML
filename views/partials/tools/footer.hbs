@@ -1,0 +1,165 @@
+<div id="footer-container">
+{{#if subscriptionFooter.active}}
+  {{> tools/views/partials/suscription}}
+{{/if}}
+{{!-- <footer class="nav-tools-footer">
+  <section class="nav-tools-footer__bound ">
+    <section class="nav-tools-footer__top {{#if interestLinks}} nav-tools-footer--with-links-pages {{/if}}">
+      <div class="nav-tools-footer__info">
+        <div class="footer-logo">
+          <img src="https://iili.io/JJ4aBCg.png" class="logo-img" alt="Grupo Rosales" />
+        </div>
+      </div>
+      {{#if interestLinks}}
+        <div class="nav-tools-footer__links-pages-container header--custom-border ">
+          <div class="nav-tools-footer__links-pages dropdown ">
+            <div class="nav-tools-footer__link-pages__title-container dropdown-title">
+              <h4 class="nav-tools-footer__link-pages__title ">{{i18n.interestLinksLabel}}</h4>
+              <div class="nav-tools-footer__link-pages__icon-down">
+                {{> tools/views/partials/icons/dropdown}}
+              </div>
+              <div class="nav-tools-footer__link-pages__icon-up">
+                {{> tools/views/partials/icons/up }}
+              </div>
+            </div>
+            <div class="nav-tools-footer__link-pages__links-container dropdown-content">
+              {{#each interestLinks}}
+                <a class="nav-tools-footer__link " href="{{url}}">
+                  {{name}}
+                </a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      {{/if}}
+      <div class="nav-tools-footer__pages  header--custom-border">
+        <span class="nav-tools-footer__page">
+          <a href="{{linkToHowBuy.href}}" class="">{{linkToHowBuy.label}}</a>
+        </span>
+      </div>
+
+      <div class="categorias-contacto-container">
+      <div class="nav-tools-footer__contact">
+        <h3 class="footer-text">CATEGORÍAS</h3>
+        <a href="/aditivos-lubricantes" class="footer-text">Aditivos y Lubricantes</a>
+        <a href="/suspension-direccion" class="footer-text">Suspensión y dirección</a>
+        <a href="/baterias" class="footer-text">Baterías</a>
+        <a href="/encendido" class="footer-text">Encendido</a>
+        <a href="/electricidad" class="footer-text">Electricidad</a>
+        <a href="/frenos" class="footer-text">Frenos</a>
+        <a href="/filtros" class="footer-text">Filtros</a>
+      </div>
+      <hr class="separador-mobile">
+      <div class="nav-tools-footer__contact">
+          <div data-editable="contact">
+            {{#if showContact}}
+              <h3 class="footer-text">CONTACTO</h3>
+              <a class="footer-text">0800 220 0666 70790276 </a>
+
+              <a class="footer-text" href="mailto:ventas@grupo-rosales.com.ar">ventas@grupo-rosales.com.ar</a>
+
+              <a
+                class="footer-text"
+                href="https://goo.gl/maps/S7u5fpHBwWAYG2yMA"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                Santiago del Estero 1542,<br>
+                Lanús Oeste, Buenos Aires 
+              </a>
+            {{/if}}
+          </div>
+      </div>
+      </div>
+    </section>
+    <section class="nav-tools-footer__bottom header--custom-border ">
+      <div>
+
+        {{#if showBusinessData}}
+          {{#with fiscalData}}
+            <div class="nav-footer-fiscal-data">
+              <p class="nav-footer-fiscal-data__name">{{legal_name}}</p>
+              <p class="nav-footer-fiscal-data__id">{{legal_doc}}</p>
+            </div>
+          {{/with}}
+        {{/if}}
+        
+      </div>
+      <div class="nav-footer-about">
+          <a href="{{{linkToMShopsLandingPage}}}" target="_blank" class="footer-text">{{i18n.powered_by}}</a>
+          {{#if linkToLegalNotices}}
+            <a href="{{linkToLegalNotices.href}}" class="footer-text">{{linkToLegalNotices.label}}</a>
+          {{/if}}
+          {{#if linkToHowBuy}}
+            <a href="{{linkToHowBuy.href}}" class="footer-text">{{linkToHowBuy.label}}</a>
+          {{/if}}
+          {{#if linkToLGPD}}
+            <a href="{{linkToLGPD.href}}" class="footer-text">{{linkToLGPD.label}}</a>
+          {{/if}}
+          <a href="https://galarreta.co/" target="_blank" class="footer-text">Developed by GALARRETA®</a>
+        </div>
+      {{#if showQrData}}
+        {{#with fiscalData}}
+          <a href={{qr_link}} target="_F960AFIPInfo">
+            <img class="nav-footer-afip-img" src={{qr_img}} alt="Data fiscal" />
+          </a>
+        {{/with}}
+      {{/if}}
+    </section>
+  </section>
+</footer> --}}
+<footer class="nav-tools-footer">
+  <section class="nav-tools-footer__bound ">
+    <section class="nav-tools-footer__top {{#if interestLinks}} nav-tools-footer--with-links-pages {{/if}}">
+      <div class="footer-categorias">
+        <div class="contenedor-categorias">
+          <a href="#">Cómo comprar</a>
+          <a href="#">Cambios y/o devoluciones</a>
+          <a href="#">Métodos de envío</a>
+          <a href="#">Métodos de pago</a>
+        </div>
+        <div class="contenedor-categorias">
+          <a href="#">Guías de talles</a>
+          <a href="#">Guías de cuidados</a>
+          <a href="#">Contacto</a>
+        </div>
+      </div>
+      <img class="footer-logo" src="https://iili.io/Jf9PU1p.png" alt="kiaora-font">
+    </section>
+    <section class="nav-tools-footer__bottom header--custom-border ">
+      <div>
+
+        {{#if showBusinessData}}
+          {{#with fiscalData}}
+            <div class="nav-footer-fiscal-data">
+              <p class="nav-footer-fiscal-data__name">{{legal_name}}</p>
+              <p class="nav-footer-fiscal-data__id">{{legal_doc}}</p>
+            </div>
+          {{/with}}
+        {{/if}}
+        
+      </div>
+      <div class="nav-footer-about">
+          <a href="{{{linkToMShopsLandingPage}}}" target="_blank" class="footer-text">{{i18n.powered_by}}</a>
+          {{#if linkToLegalNotices}}
+            <a href="{{linkToLegalNotices.href}}" class="footer-text">{{linkToLegalNotices.label}}</a>
+          {{/if}}
+          {{#if linkToHowBuy}}
+            <a href="{{linkToHowBuy.href}}" class="footer-text">{{linkToHowBuy.label}}</a>
+          {{/if}}
+          {{#if linkToLGPD}}
+            <a href="{{linkToLGPD.href}}" class="footer-text">{{linkToLGPD.label}}</a>
+          {{/if}}
+          <a href="https://galarreta.co/" target="_blank" class="footer-text">Developed by GALARRETA®</a>
+        </div>
+      {{#if showQrData}}
+        {{#with fiscalData}}
+          <a href={{qr_link}} target="_F960AFIPInfo">
+            <img class="nav-footer-afip-img" src={{qr_img}} alt="Data fiscal" />
+          </a>
+        {{/with}}
+      {{/if}}
+    </section>
+  </section>
+</footer>
+</div>
